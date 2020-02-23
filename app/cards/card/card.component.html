@@ -1,4 +1,10 @@
 <StackLayout>
-    <label [text]="card.title"></label>
-    <label [text]="card.body"></label>
+  <StackLayout class="title-wrapper m-b-5">
+    <Label text="Title" class="font-weight-bold"></Label>
+    <Label [text]="card.title"></Label>
+  </StackLayout>
+  <StackLayout class="description-wrapper m-b-5">
+    <Label text="Description" class="font-weight-bold"></Label>
+    <Label [text]="card.body"></Label>
+  </StackLayout>
 </StackLayout>

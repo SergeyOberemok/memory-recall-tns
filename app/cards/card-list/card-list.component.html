@@ -1,10 +1,18 @@
-<StackLayout>
-    <label text="Card list"></label>
-    <ng-container *ngIf="cards$ | async as cards; else loading">
-        <app-card *ngFor="let card of cards" [card]="card"></app-card>
-    </ng-container>
-</StackLayout>
+<FlexboxLayout flexDirection="column" height="100%">
+  <label text="Card list" class="title h3 m-b-15"></label>
+
+  <ng-container *ngIf="cards$ | async as cards; else loading">
+    <ScrollView flexGrow="2">
+      <FlexboxLayout flexDirection="column">
+        <StackLayout *ngFor="let card of cards; last as isLast" class="bg-red">
+          <app-card [card]="card"></app-card>
+          <StackLayout *ngIf="!isLast" class="hr m-b-10"></StackLayout>
+        </StackLayout>
+      </FlexboxLayout>
+    </ScrollView>
+  </ng-container>
+</FlexboxLayout>
 
 <ng-template #loading>
-    <label text="Loading"></label>
+  <label text="Loading"></label>
 </ng-template>
