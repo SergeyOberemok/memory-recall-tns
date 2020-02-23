@@ -1,0 +1,10 @@
+<StackLayout>
+    <label text="Card list"></label>
+    <ng-container *ngIf="cards$ | async as cards; else loading">
+        <app-card *ngFor="let card of cards" [card]="card"></app-card>
+    </ng-container>
+</StackLayout>
+
+<ng-template #loading>
+    <label text="Loading"></label>
+</ng-template>

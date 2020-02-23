@@ -6,3 +6,4 @@ hooks/
 
 app/**/*.js
 
+.vscode
